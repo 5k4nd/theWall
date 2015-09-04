@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block h2 %}Authentification{% endblock %}
+
+{% block content %} 
+<div>
+    <form action="{{ url_for('login') }}" method=post role="form">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.login.label }}
+            {{ form.login(size=15, maxlength=15) }}
+        </div>
+        {#
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password }}
+        </div>
+        #}
+        <button type="submit">laisse-moi entrer</button>
+    </form>
+
+    {#
+    <div>
+        <p>Tu n'as pas d'identifiants ? c'est <a href="">par là</a>.</p>
+    </div>
+    #}
+
+</div>
+
+{% endblock %}

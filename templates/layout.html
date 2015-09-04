@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maelström - theWall</title>
+        <meta charset='UTF-8'>
+        <link rel="shortcut icon" href="/static/pic/favicon.ico">
+        <link href="static/css/style.css" rel="stylesheet">
+        {% block script %}{% endblock %}
+    </head>
+    
+    <body>
+        <aside class="left">
+            <h4>{{ location|safe }}</h4>
+            <span>{% block sessionInfo %}{% endblock %}</span>
+            {#
+            <h5>Services sur baptabl.fr</h5>
+                    <li><a href="http://upload.baptabl.fr">upload de fichiers</a></li>
+                    <li>foobar</li>
+            #}
+        </aside>
+
+        <aside class="right">
+            {% block right_aside %}{% endblock %}
+        </aside>
+
+        <h2 class='page-header'>{% block h2 %}{% endblock %}</h2>
+
+        <div class="box">
+            {% block content %}{% endblock %}
+
+            {% for message in get_flashed_messages() %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </div>
+
+        <footer class="plein left">
+            made with ♥ by BaT°°
+        </footer>
+
+    </body>
+</html>

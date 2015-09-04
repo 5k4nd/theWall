@@ -1,0 +1,46 @@
+current:
+	* fireflies_thread (lucioles, autrement dits "grains de sable singuliers")
+	
+ToDo:
+	* gens connectés
+		actuellement fonctionnel, mais fait à la va-vite : revoir les thread, pour faire en sorte que ça soit EUX qui update le aside.right et non lors de l'envoi d'un message :)
+	* étudier la communication wsgi (pour faire un blueprint ? communiquer avec mon PC via un python-deamon ?)
+	* rétablir l'historique à la connexion
+	* avertissement si javascript désactivé du style : désolé, j'ai pour philosophie de ne pas utiliser de javascript sur mon site. pourtant, c'est ici nécessaire. une version sans js est en chantier, d'ailleurs on peut en discuter si ça t'intéresse ! :-)
+
+
+----
+	* implémenter le push desktop (une appli python doit tourner h/24 ?) puis mobile
+	* chaque salle doit posséder un bouton *supprimer la discussion
+	* décentralisation :
+		il faudrait que le serveur puisse envoyer l'hébergement à n'importe quel client, à n'importe quel moment. Et si plus de client, demic.eu récupère le lead jusqu'à l'apparition d'un nouveau client, et ainsi de suite ad vitam aeternam.
+
+----
+Notes :
+	* actuellement, le tout tourne sur un python2 lancé en permanence.
+
+----
+
+Module 'The Wall', qui se veut être une alternative à l'usage du mur facebook, véritable prison mais également véritable espace d'échange.
+Le développeur de ce module a ressenti le besoin de récréer cet espace lors de son départ de Facebook en janvier 2015.
+Module python basé sur le framework flask.
+
+And please remember:
+	- Beautiful is better than ugly.
+	- Explicit is better than implicit.
+	- Simple is better than complex.
+	- Complex is better than complicated.
+	- Flat is better than nested.
+	- Sparse is better than dense.
+	- Readability counts.
+	- Special cases aren't special enough to break the rules.
+	- Errors should never pass silently.
+	- In the face of ambiguity, refuse the temptation to guess.
+	- There should be one-- and preferably only one --obvious way to do it.
+	- Now is better than never.
+	- If the implementation is hard to explain, it's a bad idea.
+	- If the implementation is easy to explain, it may be a good idea.
+	- NameSpaces are one honking great idea -- let's do more of those!
+
+---
+

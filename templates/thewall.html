@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block script %}
+    <script type="text/javascript" src="static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="static/js/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+        /*
+        function send_msg(e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) { //Enter keycode
+                socket.emit('my broadcast event', {data: document.getElementById('msg_box').value});
+                $("#msg_box").reset();
+                return false;
+                
+            }
+        }
+        */
+
+        $(document).ready(function(){
+            namespace = '';
+            var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+            
+            socket.on('connect', function() {
+                $('#content').html('<ul></ul>');
+                socket.emit('my event', {data: '<i>connecté à la discussion<i/>'});
+            });
+
+            socket.on('my response', function(msg) {
+                $('#content ul').prepend('<li><b>' + msg.pseudo + '</b> : ' + msg.data + '</li>');
+                $('aside.right ul').html('<li>' + msg.lucioles + '</li>');
+            });
+
+            socket.on('update fireflies', function(msg) {
+                $('aside.right').text('coucou');
+            });
+
+            $('form#broadcast').submit(function(event) {
+                socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
+                this.reset();
+                return false;
+            });
+
+            $('#disconnect').click(function(event) {
+                socket.emit('disconnect request');
+                var str = $( "#content" ).text();
+                $('aside.right p').text(str);
+            });
+
+        });
+    </script>
+{% endblock %}
+
+{% block sessionInfo %}
+    {% if session['pseudo'] %}
+        <hr>
+        <p>Connecté en tant que {{ session['pseudo'] }}.<br>
+        (<a id="disconnect" href="{{ url_for('logout') }}">se déconnecter</a>)</p>
+
+    {% endif %}
+{% endblock %}
+
+{% block right_aside %}
+<h4>Lucioles connectées</h4>
+<hr>
+<ul>
+{% for firefly in fireflies %}
+    <li>{{ firefly }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
+
+{% block h2 %}Module <i>the Wall</i> - version alpha{% endblock %}
+
+<aside>
+    test
+</aside>
+
+{% block content %}
+    {#
+    <textarea id="msg_box" cols="40" rows="4" onkeypress="send_msg(event, this)"></textarea>
+    #}
+    <form id="broadcast" method="POST" action='#'>
+        <input type="text" name="broadcast_data" id="broadcast_data" size="50" maxlength="55" placeholder="écris donc quelque chose...">
+    </form>
+    <hr>
+    <div id="content">
+        <span>connexion en cours...</span>
+    </div> 
+
+{% endblock %}
