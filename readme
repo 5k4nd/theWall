@@ -7,7 +7,7 @@ ToDo:
 	* étudier la communication wsgi (pour faire un blueprint ? communiquer avec mon PC via un python-deamon ?)
 	* rétablir l'historique à la connexion
 	* avertissement si javascript désactivé du style : désolé, j'ai pour philosophie de ne pas utiliser de javascript sur mon site. pourtant, c'est ici nécessaire. une version sans js est en chantier, d'ailleurs on peut en discuter si ça t'intéresse ! :-)
-
+  * étudier ZMQ messaging protocol
 
 ----
 	* implémenter le push desktop (une appli python doit tourner h/24 ?) puis mobile
