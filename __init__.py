@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!../venv/bin/python2
 #mmh, j'ai envie d'utiliser du coding: utf-8 - ouais, vendu !
 #from __future__ import unicode_literals
 
@@ -25,7 +25,8 @@ from wtforms.validators import Required, length
 #thread = None
 #thread2 = None
 fireflies = []
-roomName = u'Die_freien_Verrückten'
+#roomName = u'Die_freien_Verrückten'
+roomName = u'TheWall_First_Room'
 
 ### CONFIG SERVEUR ###
 app = Flask(__name__)
@@ -194,7 +195,7 @@ if __name__ == "__main__":
 
     #fireflies = []
     #print fireflies
-    socketio.run(app, port=7777)
+    socketio.run(app, host='0.0.0.0', port=7777)
 
 
 
