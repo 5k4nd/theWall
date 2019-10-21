@@ -19,7 +19,7 @@ Twisted-Web==13.2.0
 WTForms==2.0.2
 WTForms-Alchemy==0.13.1
 WTForms-Components==0.9.7
-Werkzeug==0.10.4
+Werkzeug==0.15.3
 apt-xapian-index==0.45
 arandr==0.1.7.1
 argparse==1.2.1
